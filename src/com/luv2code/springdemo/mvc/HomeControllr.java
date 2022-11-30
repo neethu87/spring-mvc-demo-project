@@ -9,5 +9,10 @@ public class HomeControllr {
 	public String showPage() {
 		return "main-menu";
 	}
+	
+	@RequestMapping("/hello")
+	public String showHelloPage() {
+		return "main-menu";
+	}
 
 }
