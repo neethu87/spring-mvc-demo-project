@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HomeControllr {
 	@RequestMapping("/")
 	public String showPage() {
+		System.out.println("Hello");
+		System.out.println("Checking for conflict");
 		return "main-menu";
 	}
 	
