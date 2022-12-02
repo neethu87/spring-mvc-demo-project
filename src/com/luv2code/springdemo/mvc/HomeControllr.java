@@ -8,6 +8,8 @@ public class HomeControllr {
 	@RequestMapping("/")
 	public String showPage() {
 		System.out.println("Hi Home");
+		System.out.println("Hello");
+		System.out.println("Checking for conflict");
 		return "main-menu";
 	}
 	
