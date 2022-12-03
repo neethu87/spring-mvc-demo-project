@@ -1,0 +1,86 @@
+package com.spring.demo.controller;
+
+
+import java.util.List;
+
+import javax.validation.Valid;
+
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.spring.demo.entity.User;
+import com.spring.demo.exception.UserNotFoundException;
+import com.spring.demo.service.UserService;
+
+@RestController
+public class UserController {
+	
+	private UserService userService;
+	
+	public UserController(UserService userService) {		
+		this.userService = userService;
+	}
+
+    //Create a user
+		@PostMapping("/addUser")
+		//When Spring Boot finds an argument annotated with @Valid, 
+		//it automatically bootstraps the default JSR 380 implementation — Hibernate Validator 
+		//— and validates the argument.
+		public ResponseEntity<User> addUser(@Valid @RequestBody User user) {	
+		     User newUser = userService.createUser(user);
+			 HttpHeaders headers = new HttpHeaders();
+			 headers.add("Custom-Header-Name", "HeaderValue");
+			 return new ResponseEntity<User>(user, headers, HttpStatus.CREATED);
+			// return new ResponseEntity<User>(user, HttpStatus.CREATED);
+			//ResponseEntity.ok().body("Body")
+			//return new ResponseEntity<>("Hello World!", HttpStatus.OK);
+			//return new ResponseEntity<>( "Your age is " + calculateAge(yearOfBirth),HttpStatus.OK);
+			
+			
+		}
+	//Create a list of users
+	@PostMapping("/addUsers")
+	public List<User> addUsers(@RequestBody List<User> userList) {		
+		return userService.createUser(userList);
+		
+	}
+	
+	//Get a user
+	@GetMapping("/getUser/{id}")
+	public User getUser(@PathVariable int id) throws UserNotFoundException{		
+		User user = userService.getUserById(id);	
+		if(user==null) {
+			 throw new UserNotFoundException();
+		}
+		else {
+			return user;
+		}
+	 }
+	
+	//Get all users
+	@GetMapping("/getUsers")
+	public List<User> getUsers() {		
+		return userService.getUsers();		
+	}
+	
+	//Update a user
+	@PutMapping("/updateUser")
+	public User updateUsers(@RequestBody User user) {		
+		return userService.updateUser(user);				
+	}
+	
+   //Delete User
+	@DeleteMapping("/deleteUser/{id}")
+	public String deleteUser(@PathVariable int id) {		
+		return userService.deleteUser(id);	
+	}
+
+}
