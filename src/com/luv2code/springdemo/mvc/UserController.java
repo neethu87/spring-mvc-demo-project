@@ -16,7 +16,12 @@ public class UserController {
 	}
 	
 	@RequestMapping("/getUser")
-	public String showUserPage() {
+	public String getUserPage() {
 		return "get-page";
 	}
+	@RequestMapping("/createUser")
+	public String createUserPage() {
+		return "create-page";
+	}
 }
+
