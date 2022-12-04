@@ -19,4 +19,8 @@ public class UserController {
 	public String showUserPage() {
 		return "get-page";
 	}
+	@RequestMapping("/updateUser")
+	public String updateUserPage() {
+		return "update-page";
+	}
 }
