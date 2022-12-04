@@ -15,4 +15,8 @@ public class UserController {
 		return "show-user-page";
 	}
 	
+	@RequestMapping("/getUser")
+	public String showUserPage() {
+		return "get-page";
+	}
 }
