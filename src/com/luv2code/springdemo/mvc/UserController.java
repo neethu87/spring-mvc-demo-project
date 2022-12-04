@@ -23,5 +23,11 @@ public class UserController {
 	public String createUserPage() {
 		return "create-page";
 	}
+
+	@RequestMapping("/updateUser")
+	public String updateUserPage() {
+		return "update-page";
+
+	}
 }
 
