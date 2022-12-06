@@ -19,9 +19,15 @@ public class HomeControllr {
 	public String getHelloPage() {
 		return "main-menu";
 	}
+
 	@RequestMapping("/welcomehello")
 	public String welcomeHelloPage() {
 		return "welcome-menu";
+	}
+	@RequestMapping("/bye")
+	public String byePage() {
+		return "bye";
+
 	}
 
 }
