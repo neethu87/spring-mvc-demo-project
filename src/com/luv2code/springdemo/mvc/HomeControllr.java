@@ -12,6 +12,8 @@ public class HomeControllr {
 	
 	@RequestMapping("/hello")
 	public String showHelloPage() {
+		System.out.println("hello");
+		System.out.println("hi");
 		return "main-menu";
 	}
 
