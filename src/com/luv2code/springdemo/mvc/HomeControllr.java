@@ -14,6 +14,7 @@ public class HomeControllr {
 	public String showHelloPage() {
 		return "main-menu";
 	}
+
 	@RequestMapping("/home")
 	public String goHome() {
 		return "home";
@@ -22,6 +23,12 @@ public class HomeControllr {
 	@RequestMapping("/logout")
 	public String goLogout() {
 		return "logout";
+	}
+
+
+	@RequestMapping("/bye")
+	public String byePage() {
+		return "bye";
 	}
 
 
