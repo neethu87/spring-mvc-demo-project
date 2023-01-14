@@ -14,5 +14,10 @@ public class HomeControllr {
 	public String showHelloPage() {
 		return "main-menu";
 	}
+	@RequestMapping("/home")
+	public String goHome() {
+		return "home";
+	}
+
 
 }
