@@ -18,6 +18,11 @@ public class HomeControllr {
 	public String goHome() {
 		return "home";
 	}
+	
+	@RequestMapping("/logout")
+	public String goLogout() {
+		return "logout";
+	}
 
 
 }
