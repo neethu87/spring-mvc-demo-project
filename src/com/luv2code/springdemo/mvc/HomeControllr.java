@@ -24,7 +24,11 @@ public class HomeControllr {
 	public String goLogout() {
 		return "logout";
 	}
-
+        
+	@RequestMapping("/gye")
+	public String gyePage() {
+		return "gye";
+	}
 
 	@RequestMapping("/bye")
 	public String byePage() {
